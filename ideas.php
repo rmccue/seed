@@ -11,14 +11,19 @@ $topics = array(
 <html>
 <head>
 	<style>
+	@import url("reset.css");
+	
 	.topic {
 		background: #eee;
+		padding: 20px;
 		margin-bottom: 2em;
 		clear: both;
 		overflow: auto;
 	}
 	.title {
 		float: left;
+		font-size: 30px;
+		margin: 10px 0;
 	}
 	.votes {
 		font-size: 40px;
