@@ -1,7 +1,7 @@
 <?php
 include('config.php');
 
-if(!isset($_POST['votes'])) {
+if(!isset($_POST['id'])) {
 	header('HTTP', true, 400);
 	die();
 }
@@ -13,8 +13,15 @@ if($authed === 0) {
 	die();
 }
 
+if(!isset($topics[$_POST['id']])) {
+	header('HTTP', true, 404);
+	die();
+}
+
+$topic = $topics[$_POST['id']];
+
 echo json_encode(array(
 	'success' => true,
-	'votes' => ($_POST['votes'] + 1)
+	'votes' => ($topic['votes'] + 1)
 ));
 ?>

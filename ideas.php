@@ -31,7 +31,7 @@ include('config.php');
 <?php
 foreach($topics as $id =>$topic) {
 ?>
-	<div class="topic" id="topic-<?php echo $id ?>">
+	<div class="topic" id="<?php echo $id ?>">
 		<h2 class="title"><?php echo $topic['title'] ?></h2>
 		<p class="votes"><?php echo $topic['votes'] ?></p>
 	</div>
