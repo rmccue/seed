@@ -1,0 +1,3 @@
+[submodule "system/anti-framework"]
+	path = system/anti-framework
+	url = git@github.com:fangel/anti-framework.git
