@@ -4,7 +4,7 @@ $topics = array(
 	'test-idea' => array(
 		'title' => 'Test Idea',
 		'votes' => 0
-	);
+	)
 );
 
 foreach($topics as $topic) {
