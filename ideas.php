@@ -12,7 +12,7 @@ $default_config = array(
 	),
 	'db' => array(
 		'master' => array(
-			'dsn' => 'mysql:dbname=wordpress;host=127.0.0.1',
+			'dsn' => 'mysql:dbname=REPLACE_ME;host=127.0.0.1',
 			'username' => 'root',
 			'password' => 'password',
 			'identifier' => 'test',
@@ -30,7 +30,6 @@ $table = new AF_Table('wp_options', 'option_name');
 //echo '<pre>';
 //var_dump();
 $results = $table->get('siteurl', AF::DELAY_SAFE);
-
 
 ?>
 <!doctype html>

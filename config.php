@@ -16,18 +16,12 @@ $topics = array(
 );
 
 $config = array(
-	'log' => array(
-		'type' => 'AF_Log_Array',
-		'params' => array(
-			'register_shutdown' => true,
-		),
-	),
 	'db' => array(
 		'master' => array(
-			'dsn' => 'mysql:dbname=wordpress;host=127.0.0.1',
+			'dsn' => 'mysql:dbname=seed;host=127.0.0.1',
 			'username' => 'root',
 			'password' => 'password',
-			'identifier' => 'test',
+			'prefix' => 'seed_',
 		)
 	),
 );
