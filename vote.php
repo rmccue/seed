@@ -1,4 +1,6 @@
 <?php
+include('config.php');
+
 if(!isset($_POST['votes'])) {
 	header('HTTP', true, 400);
 	die();
