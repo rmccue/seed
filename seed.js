@@ -4,6 +4,7 @@ SeedAPI = {
 		$.ajax(
 			{
 				"url": "vote.php",
+				"type": "POST",
 				"data": {
 					"id": $(e).parent().attr("id"),
 					"votes": votes

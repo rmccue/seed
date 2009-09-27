@@ -1,6 +1,12 @@
 <?php
-$rand = rand(0, 1);
-if($rand === 0) {
+if(!isset($_POST['votes'])) {
+	header('HTTP', true, 400);
+	die();
+}
+
+//Check authentication
+$authed = 1;
+if($authed === 0) {
 	header('HTTP', true, 403);
 	die();
 }
