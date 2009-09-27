@@ -21,8 +21,9 @@ $topics = array(
 		float: left;
 	}
 	.votes {
-		font-size: 20px;
+		font-size: 40px;
 		float: right;
+		margin: 5px 20px 0;
 	}
 	</style>
 </head>
