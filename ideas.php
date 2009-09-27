@@ -1,5 +1,37 @@
 <?php
 include('config.php');
+
+require_once('./system/anti-framework/AF.php');
+
+$default_config = array(
+	'log' => array(
+		'type' => 'AF_Log_Array',
+		'params' => array(
+			'register_shutdown' => true,
+		),
+	),
+	'db' => array(
+		'master' => array(
+			'dsn' => 'mysql:dbname=wordpress;host=127.0.0.1',
+			'username' => 'root',
+			'password' => 'password',
+			'identifier' => 'test',
+		)
+	),
+);
+
+$config = array_merge($default_config, $config);
+
+AF::setConfig($config);
+AF::bootstrap(AF::PAGE_GEN);
+
+$table = new AF_Table('wp_options', 'option_name');
+
+//echo '<pre>';
+//var_dump();
+$results = $table->get('siteurl', AF::DELAY_SAFE);
+
+
 ?>
 <!doctype html>
 <html>
