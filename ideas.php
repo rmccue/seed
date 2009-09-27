@@ -40,7 +40,6 @@ $topics = array(
 		margin: 5px 20px 0;
 	}
 	</style>
-	<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.3.2/jquery.min.js"></script>
 </head>
 <body>
 <?php
@@ -53,39 +52,7 @@ foreach($topics as $id =>$topic) {
 <?php
 }
 ?>
-	<script>
-		$(document).ready(function () {
-			$(".votes").css("cursor", "pointer").live("click", function () {
-				e = this;
-				votes = $(e).text();
-				$.post(
-					"vote.php",
-					{
-						"id": $(e).parent().attr("id"),
-						"votes": votes
-					},
-					function () { afterVote(e); },
-					"json"
-				);
-			});
-		});
-		
-		afterVote = function (e) {
-				$(e).text(++votes);
-				parent = $(e).parent();
-				prev = parent.prev();
-				if(!prev.length)
-					return false;
-				
-				while(prev.children(".votes").text() < votes) {
-					parent = parent.remove().insertBefore(prev);
-					prev = parent.prev();
-					
-					if(!prev.length)
-						break;
-				}
-				return false;
-		};
-	</script>
+	<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.3.2/jquery.min.js"></script>
+	<script src="seed.js"></script>
 </body>
 </html>
