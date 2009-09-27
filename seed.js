@@ -1,23 +1,25 @@
 SeedAPI = {
 	vote: function (e) {
-		e = this;
 		votes = $(e).text();
 		$.ajax(
 			{
-				"cache": false,
-				"complete": function () { callbacks.voteSuccess(e); }
-				"vote.php",
+				"url": "vote.php",
 				"data": {
 					"id": $(e).parent().attr("id"),
 					"votes": votes
 				},
 				"dataType": "json",
+				"error":   function (xhr, status, error) { SeedAPI.callbacks.voteError(e, xhr, status, error); },
+				"success": function (data, status) { SeedAPI.callbacks.voteSuccess(e, data, status); },
 			}
 		);
 	},
 
-	callbacks = {
-		voteSuccess: function (e) {
+	callbacks: {
+		voteError: function (e) {
+			alert('Error');
+		},
+		voteSuccess: function (e, data, status) {
 			$(e).text(++votes);
 			parent = $(e).parent();
 			prev = parent.prev();
