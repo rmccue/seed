@@ -6,7 +6,28 @@ $topics = array(
 		'votes' => 0
 	)
 );
-
+?>
+<!doctype html>
+<html>
+<head>
+	<style>
+	.topic {
+		background: #eee;
+		margin-bottom: 2em;
+		clear: both;
+		overflow: auto;
+	}
+	.title {
+		float: left;
+	}
+	.votes {
+		font-size: 20px;
+		float: right;
+	}
+	</style>
+</head>
+<body>
+<?php
 foreach($topics as $topic) {
 ?>
 <div class="topic">
@@ -15,3 +36,6 @@ foreach($topics as $topic) {
 </div>
 <?php
 }
+?>
+</body>
+</html>
