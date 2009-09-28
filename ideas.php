@@ -1,9 +1,10 @@
 <?php
 include('config.php');
 
+require_once('./system/bootstrap.php');
 require_once('./system/anti-framework/AF.php');
 
-$config = array(
+$default_config = array(
 	'log' => array(
 		'type' => 'AF_Log_Array',
 		'params' => array(
@@ -20,10 +21,15 @@ $config = array(
 	),
 );
 
-$config['db'] = array_merge($config['db'], $db);
+$config = array_merge_recursive_distinct($default_config, $config);
 
 AF::setConfig($config);
-AF::bootstrap(AF::PAGE_GEN);
+try {
+	AF::bootstrap(AF::PAGE_GEN);
+}
+catch (PDOException $e) {
+	die('Error connection to database: ' . $e->getMessage());
+}
 
 $table = new AF_Table('wp_options', 'option_name');
 
