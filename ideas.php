@@ -3,7 +3,7 @@ include('config.php');
 
 require_once('./system/anti-framework/AF.php');
 
-$default_config = array(
+$config = array(
 	'log' => array(
 		'type' => 'AF_Log_Array',
 		'params' => array(
@@ -20,7 +20,7 @@ $default_config = array(
 	),
 );
 
-$config = array_merge($default_config, $config);
+$config['db'] = array_merge($config['db'], $db);
 
 AF::setConfig($config);
 AF::bootstrap(AF::PAGE_GEN);

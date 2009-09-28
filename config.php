@@ -15,13 +15,11 @@ $topics = array(
 	),
 );
 
-$config = array(
-	'db' => array(
-		'master' => array(
-			'dsn' => 'mysql:dbname=seed;host=127.0.0.1',
-			'username' => 'root',
-			'password' => 'password',
-			'prefix' => 'seed_',
-		)
-	),
+$db = array(
+	'master' => array(
+		'dsn' => 'mysql:dbname=seed;host=127.0.0.1',
+		'username' => 'root',
+		'password' => 'password',
+		'prefix' => 'seed_',
+	)
 );
